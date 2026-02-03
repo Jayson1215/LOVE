@@ -214,6 +214,25 @@ function SnakeGame({ onComplete }) {
     setGameOver(false)
   }
 
+  const handleArrowClick = (directionType) => {
+    switch (directionType) {
+      case 'up':
+        if (direction.y === 0) setNextDirection({ x: 0, y: -1 })
+        break
+      case 'down':
+        if (direction.y === 0) setNextDirection({ x: 0, y: 1 })
+        break
+      case 'left':
+        if (direction.x === 0) setNextDirection({ x: -1, y: 0 })
+        break
+      case 'right':
+        if (direction.x === 0) setNextDirection({ x: 1, y: 0 })
+        break
+      default:
+        break
+    }
+  }
+
   return (
     <div className="snake-game-container">
       <motion.div
@@ -249,15 +268,15 @@ function SnakeGame({ onComplete }) {
         </div>
 
         <div className="controls">
-          <p className="control-text">Use Arrow Keys to Move</p>
+          <p className="control-text">Use Arrow Keys or Buttons to Move</p>
           <div className="arrow-keys">
             <div className="arrow-row">
-              <button className="arrow-btn">↑</button>
+              <button className="arrow-btn" onClick={() => handleArrowClick('up')}>↑</button>
             </div>
             <div className="arrow-row">
-              <button className="arrow-btn">←</button>
-              <button className="arrow-btn">↓</button>
-              <button className="arrow-btn">→</button>
+              <button className="arrow-btn" onClick={() => handleArrowClick('left')}>←</button>
+              <button className="arrow-btn" onClick={() => handleArrowClick('down')}>↓</button>
+              <button className="arrow-btn" onClick={() => handleArrowClick('right')}>→</button>
             </div>
           </div>
         </div>
