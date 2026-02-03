@@ -1,0 +1,287 @@
+.thankyou-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.thankyou-card {
+  background: rgba(20, 20, 30, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 40px;
+  padding: 80px 60px;
+  max-width: 650px;
+  width: 100%;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7),
+              0 0 80px rgba(74, 222, 128, 0.3),
+              0 0 40px rgba(220, 20, 60, 0.2);
+  border: 3px solid rgba(74, 222, 128, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-hearts-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-heart {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.2;
+}
+
+.bg-heart:nth-child(1) {
+  top: 10%;
+  left: 10%;
+}
+
+.bg-heart:nth-child(2) {
+  top: 20%;
+  right: 15%;
+}
+
+.bg-heart:nth-child(3) {
+  bottom: 30%;
+  left: 5%;
+}
+
+.bg-heart:nth-child(4) {
+  bottom: 10%;
+  right: 10%;
+}
+
+.bg-heart:nth-child(5) {
+  top: 50%;
+  right: 5%;
+}
+
+.bg-heart:nth-child(6) {
+  top: 70%;
+  left: 15%;
+}
+
+.thankyou-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.thankyou-emoji {
+  font-size: 6rem;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.thankyou-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #4ADE80 0%, #22c55e 50%, #ff6b9d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 20px rgba(74, 222, 128, 0.3);
+}
+
+.thankyou-message {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.love-declaration {
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.25), rgba(220, 20, 60, 0.25));
+  border: 2px solid rgba(74, 222, 128, 0.6);
+  border-radius: 25px;
+  padding: 35px;
+  margin: 20px 0;
+}
+
+.declaration-text {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 15px rgba(74, 222, 128, 0.3);
+}
+
+.signature {
+  font-size: 1.3rem;
+  color: #4ADE80;
+  font-weight: 600;
+  margin: 15px 0 0 0;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.hearts-animation {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 25px 0;
+  font-size: 2rem;
+}
+
+.floating-heart-anim {
+  display: inline-block;
+  will-change: transform;
+}
+
+.reset-button {
+  margin-top: 30px;
+  padding: 20px 50px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: linear-gradient(135deg, #4ADE80 0%, #22c55e 100%);
+  color: #000;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 12px 40px rgba(74, 222, 128, 0.5);
+  align-self: center;
+}
+
+.reset-button:hover {
+  box-shadow: 0 18px 60px rgba(74, 222, 128, 0.7);
+  transform: translateY(-3px);
+}
+
+.reset-button:active {
+  transform: translateY(-1px);
+}
+
+.decorative-roses {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.rose {
+  position: fixed;
+  font-size: 2.5rem;
+}
+
+.rose:nth-child(1) {
+  top: 15%;
+  left: 5%;
+}
+
+.rose:nth-child(2) {
+  top: 30%;
+  right: 8%;
+}
+
+.rose:nth-child(3) {
+  bottom: 20%;
+  left: 8%;
+}
+
+@media (max-width: 768px) {
+  .thankyou-card {
+    padding: 60px 40px;
+  }
+
+  .thankyou-emoji {
+    font-size: 5rem;
+  }
+
+  .thankyou-title {
+    font-size: 2.8rem;
+  }
+
+  .thankyou-message {
+    font-size: 1.2rem;
+  }
+
+  .love-declaration {
+    padding: 25px;
+  }
+
+  .declaration-text {
+    font-size: 1.3rem;
+  }
+
+  .signature {
+    font-size: 1.1rem;
+  }
+
+  .hearts-animation {
+    font-size: 1.5rem;
+    gap: 10px;
+  }
+
+  .reset-button {
+    padding: 16px 40px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .thankyou-card {
+    padding: 45px 25px;
+  }
+
+  .thankyou-emoji {
+    font-size: 4rem;
+  }
+
+  .thankyou-title {
+    font-size: 2.2rem;
+  }
+
+  .thankyou-message {
+    font-size: 1rem;
+  }
+
+  .love-declaration {
+    padding: 20px;
+  }
+
+  .declaration-text {
+    font-size: 1.1rem;
+  }
+
+  .signature {
+    font-size: 1rem;
+  }
+
+  .hearts-animation {
+    font-size: 1.3rem;
+    gap: 8px;
+  }
+
+  .reset-button {
+    padding: 14px 30px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  .rose {
+    font-size: 2rem;
+  }
+}
