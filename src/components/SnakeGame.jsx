@@ -180,28 +180,41 @@ function SnakeGame({ onComplete }) {
       }
     })
 
-    // Draw apple
-    ctx.fillStyle = '#FFD700'
+    // Draw apple (now a heart)
+    const heartX = (apple.x + 0.5) * tileSize
+    const heartY = (apple.y + 0.5) * tileSize
+    const heartSize = tileSize / 2.2
+
+    // Draw red heart
+    ctx.fillStyle = '#dc143c'
     ctx.beginPath()
-    ctx.arc(
-      (apple.x + 0.5) * tileSize,
-      (apple.y + 0.5) * tileSize,
-      tileSize / 2.5,
-      0,
-      Math.PI * 2
+    ctx.moveTo(heartX, heartY - heartSize * 0.3)
+    ctx.bezierCurveTo(
+      heartX - heartSize * 0.5, heartY - heartSize * 0.8,
+      heartX - heartSize * 0.9, heartY - heartSize * 0.4,
+      heartX - heartSize * 0.9, heartY + heartSize * 0.1
+    )
+    ctx.bezierCurveTo(
+      heartX - heartSize * 0.9, heartY + heartSize * 0.5,
+      heartX - heartSize * 0.2, heartY + heartSize * 0.9,
+      heartX, heartY + heartSize * 1
+    )
+    ctx.bezierCurveTo(
+      heartX + heartSize * 0.2, heartY + heartSize * 0.9,
+      heartX + heartSize * 0.9, heartY + heartSize * 0.5,
+      heartX + heartSize * 0.9, heartY + heartSize * 0.1
+    )
+    ctx.bezierCurveTo(
+      heartX + heartSize * 0.9, heartY - heartSize * 0.4,
+      heartX + heartSize * 0.5, heartY - heartSize * 0.8,
+      heartX, heartY - heartSize * 0.3
     )
     ctx.fill()
 
-    // Draw apple shine
-    ctx.fillStyle = '#FFFF99'
+    // Draw heart shine/highlight
+    ctx.fillStyle = '#ff6b9d'
     ctx.beginPath()
-    ctx.arc(
-      (apple.x + 0.3) * tileSize,
-      (apple.y + 0.3) * tileSize,
-      tileSize / 6,
-      0,
-      Math.PI * 2
-    )
+    ctx.arc(heartX - heartSize * 0.2, heartY - heartSize * 0.2, heartSize * 0.3, 0, Math.PI * 2)
     ctx.fill()
   }, [snake, apple])
 
@@ -241,11 +254,11 @@ function SnakeGame({ onComplete }) {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="game-title">🎮 Eat The Apples! 🍎</h2>
+        <h2 className="game-title">💕 Collect The Hearts! 💕</h2>
         
         <div className="game-info">
           <div className="score-box">
-            <p className="score-label">Apples Eaten:</p>
+            <p className="score-label">Hearts Collected:</p>
             <p className="score-number">{score}/5</p>
           </div>
           <div className="progress-bar">
@@ -289,7 +302,7 @@ function SnakeGame({ onComplete }) {
           >
             <div className="modal-content">
               <p className="modal-title">Oh No! 😅</p>
-              <p className="modal-text">You got {score}/5 apples. Try again!</p>
+              <p className="modal-text">You collected {score}/5 hearts. Try again!</p>
               <button className="modal-btn" onClick={handleRestart}>
                 Try Again 🔄
               </button>
@@ -312,7 +325,7 @@ function SnakeGame({ onComplete }) {
               >
                 🎉 You Won! 🎉
               </motion.p>
-              <p className="modal-text">You ate all 5 apples! Ready for your surprise?</p>
+              <p className="modal-text">You collected all 5 hearts! Ready for your surprise?</p>
               <button className="modal-btn success-btn" onClick={onComplete}>
                 Open My Letter 💌
               </button>
